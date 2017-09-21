@@ -15,14 +15,15 @@
 # *   along with this program.  If not, see <http://www.gnu.org/licenses/>. *
 # ***************************************************************************/
 
-EAPI=5
+EAPI=6
 
 DESCRIPTION="A command line application for interfacing with the Nitrokey Storage"
-
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
+
+inherit cargo
 
 # We require gnupg for /usr/bin/gpg-connect-agent.
 RDEPEND="
@@ -35,17 +36,22 @@ DEPEND="
   ${RDEPEND}
 "
 
-inherit git-2
+inherit git-r3
 
 EGIT_BRANCH="devel"
 EGIT_REPO_URI="https://github.com/d-e-s-o/nitrocli.git"
 
-
 src_compile() {
   cd nitrocli || die
-  cargo build --release --verbose || die
+  # The repository contains a Makefile that is used for testing and that
+  # Portage happily executes, which we do not want here.
+  rm Makefile || die
+
+  cargo_src_compile
 }
 
 src_install() {
-  dobin nitrocli/target/release/nitrocli
+  cd nitrocli || die
+
+  cargo_src_install
 }
