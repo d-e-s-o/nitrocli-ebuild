@@ -1,5 +1,5 @@
 #/***************************************************************************
-# *   Copyright (C) 2017 Daniel Mueller (deso@posteo.net)                   *
+# *   Copyright (C) 2017-2018 Daniel Mueller (deso@posteo.net)              *
 # *                                                                         *
 # *   This program is free software: you can redistribute it and/or modify  *
 # *   it under the terms of the GNU General Public License as published by  *
@@ -32,7 +32,6 @@ RDEPEND="
 "
 DEPEND="
   >=dev-lang/rust-1.15
-  dev-util/cargo
   ${RDEPEND}
 "
 
