@@ -52,5 +52,6 @@ src_compile() {
 src_install() {
   cd nitrocli || die
 
-  cargo_src_install
+  cargo install -j $(makeopts_jobs) --path=. --root="${D}/usr" $(usex debug --debug "") \
+    || die "cargo install failed"
 }
