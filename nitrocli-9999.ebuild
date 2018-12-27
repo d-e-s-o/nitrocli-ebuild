@@ -31,7 +31,7 @@ RDEPEND="
   dev-libs/hidapi
 "
 DEPEND="
-  >=dev-lang/rust-1.15
+  >=dev-lang/rust-1.31
   ${RDEPEND}
 "
 
