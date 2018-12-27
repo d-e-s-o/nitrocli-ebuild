@@ -37,7 +37,7 @@ DEPEND="
 
 inherit git-r3
 
-EGIT_BRANCH="devel"
+EGIT_BRANCH="master"
 EGIT_REPO_URI="https://github.com/d-e-s-o/nitrocli.git"
 
 src_compile() {
